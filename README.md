@@ -8,18 +8,17 @@ The application is built of two web audio API nodes, a canvas element and a func
 The application is built of two files. These are a basic HTML file and a JavaScript file, which is loaded into the HTML file. The JavaScript file is built of six functions. 
 
 After the document is loaded, three initial functions are called. They initialize the visualization, the audio context and nodes and the microphone input. The three functions are called initVisualization, initAudioContext and initMicrophoneInput. Finally, the visualization is started. Next to the initial functions, there are three other functions used as callbacks for handling the microphone input, processing the incoming audio stream and updating the visualization on the canvas. These functions are handleMicrophoneInput, onAudioProcess and updateVisualization. The function initVisualization, which is shown in listing 12, appends a canvas element into the body of the HTML page. It gives the element the width of the browser window minus 25px and a height of 300px and the background color black. It saves the canvas element itself and it’s 2d-context as variables c and ctx. Furthermore, initVisualization prepares the function window.requestAnimationFrame to run with the same function call in different browsers. This is required because there are browsers which use the function window.webkitRequestAnimationFrame instead of window.requestAnimationFrame. The function is needed to update the visualization and adapt the frame rate to the calculation power of the processor.
-
-  function initVisualization () {
-    if (! window . requestAnimationFrame )
-    window . requestAnimationFrame = window . webkitRequestAnimationFrame ;
-
-    \$(" body "). append ('<canvas id =" visualisation " width =" '+( window .
-    innerWidth -25) +'" height ="300" style =" background : black ;" > </
-    canvas ><br >');
-    c = document . getElementById (" visualisation ");
-    ctx = c. getContext ("2d");
-  }
-  
+'''
+function initVisualization () {
+  if ( !window.requestAnimationFrame )
+  window.requestAnimationFrame = window.webkitRequestAnimationFrame ;
+  $("body"). append ('<canvas id =" visualisation " 
+    width =" '+( window.innerWidth -25) +'" height ="300" 
+    style =" background : black ;" > </canvas ><br >');
+  c = document.getElementById ("visualisation");
+  ctx = c.getContext ("2d");
+}
+'''  
 By the function initAudioContext, the audio context and the script processor node are created and saved in global variables. The script processor node receives three arguments.
 
 The first one is the buffer size, which defines the size of the frames in the audio stream. The second one is the number of input channels and the third one the number of output channels. In the example, the buffer size is set to a size of 4096 by
