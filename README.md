@@ -57,9 +57,9 @@ function initMicrophoneInput (){
   });
 }
 function handleMicrophoneInput ( stream ){
-  console . log (" capturing microphone data ... ");
-  microphoneNode = audioCtx . createMediaStreamSource ( stream );
-  microphoneNode . connect ( scriptProcessorNode );
+  console.log (" capturing microphone data ... ");
+  microphoneNode = audioCtx.createMediaStreamSource ( stream );
+  microphoneNode.connect ( scriptProcessorNode );
 }
 ``` 
 
