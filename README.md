@@ -9,7 +9,7 @@ The application is built of two files. These are a basic HTML file and a JavaScr
 
 After the document is loaded, three initial functions are called. They initialize the visualization, the audio context and nodes and the microphone input. The three functions are called initVisualization, initAudioContext and initMicrophoneInput. Finally, the visualization is started. Next to the initial functions, there are three other functions used as callbacks for handling the microphone input, processing the incoming audio stream and updating the visualization on the canvas. These functions are handleMicrophoneInput, onAudioProcess and updateVisualization. The function initVisualization, which is shown in listing 12, appends a canvas element into the body of the HTML page. It gives the element the width of the browser window minus 25px and a height of 300px and the background color black. It saves the canvas element itself and it’s 2d-context as variables c and ctx. Furthermore, initVisualization prepares the function window.requestAnimationFrame to run with the same function call in different browsers. This is required because there are browsers which use the function window.webkitRequestAnimationFrame instead of window.requestAnimationFrame. The function is needed to update the visualization and adapt the frame rate to the calculation power of the processor.
 
-'''
+```
 function initVisualization () {
   if ( !window.requestAnimationFrame )
   window.requestAnimationFrame = window.webkitRequestAnimationFrame ;
@@ -19,7 +19,7 @@ function initVisualization () {
   c = document.getElementById ("visualisation");
   ctx = c.getContext ("2d");
 }
-'''  
+```  
 
 By the function initAudioContext, the audio context and the script processor node are created and saved in global variables. The script processor node receives three arguments.
 
